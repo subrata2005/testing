@@ -1,0 +1,29 @@
+<?xml version = "1.0"?>
+
+ 
+ <testdata>
+      <forename>Subrata</forename>
+      <surname>Bhattacharjee</surname>
+      <email>subrata@test.com</email>
+      <telephone>61400112233</telephone>
+      <message>This is nice.</message>
+      <pageerror>We welcome your feedback - but we won't get it unless you complete the form correctly.</pageerror>
+      <forenameerror>Forename is required</forenameerror>
+      <emailerror>Email is required"</emailerror>
+      <messageerror>Message is required</messageerror>
+      <chromepath>C:\\Users\\iswap\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe</chromepath>
+      <testurl>http://jupiter.cloud.planittesting.com</testurl>
+      <pagetitle>Jupiter Toys</pagetitle>
+      <successmessage>we appreciate your feedback</successmessage>
+      <countofproducts>3</countofproducts>
+      <cartMessage>There are 3 items in your cart, you can Checkout or carry on Shopping.</cartMessage>
+      <cartMessage2>Funny Cow $10.99 $21.98</cartMessage2>
+	  <cartMessage3>Fluffy Bunny $9.99 $9.99</cartMessage3>
+	  <countofmultipleproducts>10</countofmultipleproducts>
+	  <stufffrogcount>2</stufffrogcount>
+	  <stufffrogprice>10.99</stufffrogprice>
+	  <fluffybunnycount>5</fluffybunnycount>
+	  <fluffybunnyprice>9.99</fluffybunnyprice>
+	  <valentinebearcount>3</valentinebearcount>
+	  <valentinebearprice>14.99</valentinebearprice> 
+ </testdata>  
