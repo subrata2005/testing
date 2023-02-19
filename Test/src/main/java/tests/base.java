@@ -1,13 +1,10 @@
 package tests;
 
 import static org.testng.Assert.assertTrue;
-
 import java.io.File;
 import java.time.Duration;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -15,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 
 public class base {
 	
+			WebDriver driver;
 			//Reading from XML
 			public static String getXMLData(String datafor)
 		    {
@@ -33,8 +31,7 @@ public class base {
 		        }
 		        return nodevalue;
 		    }
-			
-			WebDriver driver;	
+				
 
 			@BeforeTest
 			public void setUp(){

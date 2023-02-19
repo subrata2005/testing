@@ -2,17 +2,16 @@ package tests;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 import java.time.Duration;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
-import org.testng.annotations.*;
 
 
 public class Testcases extends base {
-	
-	
-
 	@Test
+	//1.From the home page go to contact page
+	//2.Click submit button
+	//3.Validate errors
+	//4.Populate mandatory fields
+	//5.Validate errors are gone
 	public void test1(){
 		HomePage homepage = new HomePage(driver);
 		ContactPage contactpage = new ContactPage(driver);
@@ -34,6 +33,10 @@ public class Testcases extends base {
 	}
 	
 	@Test
+	//1.From the home page go to contact page
+	//2.Populate mandatory fields
+	//3.Click submit button
+	//4.Validate successful submission message
 	public void test2(){
 		HomePage homepage = new HomePage(driver);
 		ContactPage contactpage = new ContactPage(driver);
@@ -46,11 +49,16 @@ public class Testcases extends base {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Checking if the action is successful
 		contactpage.successExists(getXMLData("successmessage")); 
-		contactpage.clickBack();	
+		contactpage.clickBack();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
 	
 	@Test
+	//1.From the home page go to shop page
+	//2.Click buy button 2 times on “Funny Cow”
+	//3.Click buy button 1 time on “Fluffy Bunny”
+	//4.Click the cart menu
+	//5.Verify the items are in the cart
 	public void test3(){
 		HomePage homepage = new HomePage(driver);
 		ShopPage shoppage = new ShopPage(driver);
@@ -58,11 +66,12 @@ public class Testcases extends base {
 		homepage.clickShop();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Adding in the cart
-		shoppage.buyFunnyCow();	
-		shoppage.buyFunnyCow();	
 		shoppage.lnkFluffyBunny();
-		homepage.clickCart();
+		shoppage.buyFunnyCow();
+		shoppage.buyFunnyCow();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		homepage.clickCart();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Checking if we have the right number of items count in the cart
 		Boolean verify = cartpage.cartCount().contains(getXMLData("countofproducts"));
 		assertTrue(verify);
@@ -77,6 +86,11 @@ public class Testcases extends base {
 	}
 	
 	@Test
+	//1.Buy 2 Stuffed Frog, 5 Fluffy Bunny, 3 Valentine Bear
+	//2.Go to the cart page
+	//3.Verify the price for each product
+	//4.Verify that each product’s sub total = product price * quantity
+	//5.Verify that total = sum(sub totals)
 	public void test4(){
 		HomePage homepage = new HomePage(driver);
 		ShopPage shoppage = new ShopPage(driver);

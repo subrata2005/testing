@@ -48,7 +48,6 @@ public class ContactPage {
 		String message = driver.findElement(By.xpath("//div[contains(@class,'alert alert-success')]")).getText();
 		Boolean verifyMsg = message.contains(expectedMessage);
 		assertTrue(verifyMsg);
-		System.out.println("This is the message we got: " + message);
 	}
 	
 	public void requiredErrMsg(String expectedMessage,String expectedMessage2,String expectedMessage3,String expectedMessage4, Boolean flag){
@@ -82,8 +81,6 @@ public class ContactPage {
 							}
 			
 		}
-		
-		System.out.println("This is the message we got: " + webEl.getText());
 	}
 	
 	//Method to click on submit button
