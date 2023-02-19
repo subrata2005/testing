@@ -1,8 +1,17 @@
 package tests;
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.File;
+import java.time.Duration;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class base {
 	
@@ -24,5 +33,25 @@ public class base {
 		        }
 		        return nodevalue;
 		    }
+			
+			WebDriver driver;	
+
+			@BeforeTest
+			public void setUp(){
+				System.setProperty("webdriver.chrome.driver", getXMLData("chromepath"));
+				driver = new ChromeDriver();
+				//Implicit Wait
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+				driver.get(getXMLData("testurl"));
+				driver.manage().window().maximize();
+				//Verifying if we have invoked the right web app
+				Boolean verifyTitle = driver.getTitle().equalsIgnoreCase(getXMLData("pagetitle"));
+				assertTrue(verifyTitle);
+				}
+			
+			@AfterTest
+			public void tearDown(){
+				driver.close();
+			}
 
 }
