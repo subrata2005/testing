@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage {
-	
+
 	WebDriver driver;
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
@@ -16,16 +16,16 @@ public class HomePage {
 	By lnkLogout = By.linkText("Logout");
 	By lnkUser = By.linkText("User");
 	By lnkCart = By.xpath("//*[@id=\"nav-cart\"]/a");
-	
+
 
 	public void clickContact() {
 		driver.findElement(lnkContact).click();
 		System.out.println("Contact Link is clicked");
 	}
 	public void clickHome() {
-	driver.findElement(lnkContact).click();
-	System.out.println("Home Link is clicked");
-}		
+		driver.findElement(lnkContact).click();
+		System.out.println("Home Link is clicked");
+	}		
 	public void clickShop() {
 		driver.findElement(lnkShop).click();
 		System.out.println("Shop Link is clicked");

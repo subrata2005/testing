@@ -31,7 +31,7 @@ public class Testcases extends base {
 		homepage.clickHome();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));	
 	}
-	
+
 	@Test
 	//1.From the home page go to contact page
 	//2.Populate mandatory fields
@@ -52,7 +52,7 @@ public class Testcases extends base {
 		contactpage.clickBack();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
-	
+
 	@Test
 	//1.From the home page go to shop page
 	//2.Click buy button 2 times on “Funny Cow”
@@ -71,7 +71,7 @@ public class Testcases extends base {
 		shoppage.buyFunnyCow();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		homepage.clickCart();
-	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Checking if we have the right number of items count in the cart
 		Boolean verify = cartpage.cartCount().contains(getXMLData("countofproducts"));
 		assertTrue(verify);
@@ -84,7 +84,7 @@ public class Testcases extends base {
 		cartpage.clickEmptyCart();
 		cartpage.clickYesEmptyCart();
 	}
-	
+
 	@Test
 	//1.Buy 2 Stuffed Frog, 5 Fluffy Bunny, 3 Valentine Bear
 	//2.Go to the cart page
@@ -119,12 +119,9 @@ public class Testcases extends base {
 		float netTotal = fluffyBunnySubtotal + valentineBearSubtotal + stuffForgSubtotal;
 		Boolean verifyCartMsg = (cartpage.verifyCartValues().contains("Fluffy Bunny $"+getXMLData("fluffybunnyprice")+" $"+String.format("%.2f",fluffyBunnySubtotal)) && 
 				cartpage.verifyCartValues().contains("Stuffed Frog $"+getXMLData("stufffrogprice")+" $"+String.format("%.2f",stuffForgSubtotal)) && 
-						cartpage.verifyCartValues().contains("Valentine Bear $"+getXMLData("valentinebearprice")+" $"+String.format("%.2f",valentineBearSubtotal))&&
-							cartpage.verifyCartValues().contains("Total: "+String.format("%.1f",netTotal)));
+				cartpage.verifyCartValues().contains("Valentine Bear $"+getXMLData("valentinebearprice")+" $"+String.format("%.2f",valentineBearSubtotal))&&
+				cartpage.verifyCartValues().contains("Total: "+String.format("%.1f",netTotal)));
 		assertTrue(verifyCartMsg);
-		
-	}
-	
-	
 
+	}
 }
