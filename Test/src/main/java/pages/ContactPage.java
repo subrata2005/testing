@@ -1,5 +1,4 @@
 package pages;
-import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,42 +48,13 @@ public class ContactPage {
 		return message;
 	}
 
-	public void requiredErrMsg(String expectedMessage,String expectedMessage2,String expectedMessage3,String expectedMessage4, Boolean flag){
+	public String checkErrorMessages(){
 		WebElement webEl =driver.findElement(By.tagName("body"));
-		if (flag == true) {
-			if (webEl.getText().contains(expectedMessage)) {
-				assertTrue(true, expectedMessage + " is present");
-			} 
-			if (webEl.getText().contains(expectedMessage2)){
-				assertTrue(true, expectedMessage2 + " is present");
-			}
-			if (webEl.getText().contains(expectedMessage3)) {
-				assertTrue(true, expectedMessage3 + " is present");
-			} 
-			if (webEl.getText().contains(expectedMessage4)) {
-				assertTrue(true, expectedMessage4 + " is present"); 
-			}
-		}
-		else {
-			if (!webEl.getText().contains(expectedMessage)) {
-				assertTrue(true, expectedMessage + " is present");
-			} 
-			if (!webEl.getText().contains(expectedMessage2)){
-				assertTrue(true, expectedMessage2 + " is present");
-			}
-			if (!webEl.getText().contains(expectedMessage3)) {
-				assertTrue(true, expectedMessage3 + " is present");
-			} 
-			if (!webEl.getText().contains(expectedMessage4)) {
-				assertTrue(true, expectedMessage4 + " is present"); 
-			}
-
-		}
+		return webEl.getText();
 	}
 
 	//Method to click on submit button
 	public void clickSubmit() {
 		driver.findElement(submitButton).click();
 	}
-
 }

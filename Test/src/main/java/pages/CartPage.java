@@ -16,7 +16,6 @@ public class CartPage {
 	By yesEmptyCart = By.linkText("Yes");
 	public String verifyCartValues(){
 		WebElement webEl =driver.findElement(By.tagName("body"));
-		System.out.println(webEl.getText());
 		return webEl.getText();
 	}
 	public String cartCount() {

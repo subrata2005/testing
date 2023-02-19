@@ -6,6 +6,7 @@ import pages.*;
 
 
 public class Testcases extends base {
+
 	@Test
 	//1.From the home page go to contact page
 	//2.Click submit button
@@ -20,13 +21,15 @@ public class Testcases extends base {
 		contactpage.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Checking the error messages
-		contactpage.requiredErrMsg(getXMLData("pageerror"),getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror"),true);
+		String verifyMsg = contactpage.checkErrorMessages();
+		super.validateString(verifyMsg,getXMLData("pageerror"),getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror"),true);
 		//Filling Mandatory fields
 		contactpage.dataForename(getXMLData("forename"));
 		contactpage.dataEmailField(getXMLData("email"));
 		contactpage.dataMessageField(getXMLData("message"));	
 		//Check if error messages are removed
-		contactpage.requiredErrMsg(getXMLData("pageerror"),getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror"),false);
+		verifyMsg = contactpage.checkErrorMessages();
+		super.validateString(verifyMsg,getXMLData("pageerror"),getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror"),false);
 		homepage.clickShop();
 		homepage.clickHome();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));	
