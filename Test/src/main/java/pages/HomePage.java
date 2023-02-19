@@ -20,18 +20,14 @@ public class HomePage {
 
 	public void clickContact() {
 		driver.findElement(lnkContact).click();
-		System.out.println("Contact Link is clicked");
 	}
 	public void clickHome() {
 		driver.findElement(lnkContact).click();
-		System.out.println("Home Link is clicked");
 	}		
 	public void clickShop() {
 		driver.findElement(lnkShop).click();
-		System.out.println("Shop Link is clicked");
 	}	
 	public void clickCart() {
 		driver.findElement(lnkCart).click();
-		System.out.println("Cart Link is clicked");
 	}
 }

@@ -48,7 +48,8 @@ public class Testcases extends base {
 		contactpage.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Checking if the action is successful
-		contactpage.successExists(getXMLData("successmessage")); 
+		Boolean verifyMsg = contactpage.successExists().contains(getXMLData("successmessage"));
+		assertTrue(verifyMsg);
 		contactpage.clickBack();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
