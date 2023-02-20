@@ -31,35 +31,24 @@ public class base {
 		}
 		return nodevalue;
 	}
-	public void validateString(String actualOutput,String expectedMessage,String expectedMessage2,String expectedMessage3,String expectedMessage4, Boolean flag) {
+	public void validateString(String actualOutput, String[] errorMsgs, Boolean flag) {
 		if (flag == true) {
-			if (actualOutput.contains(expectedMessage)) {
-				assertTrue(true, expectedMessage + " is present");
-			} 
-			if (actualOutput.contains(expectedMessage2)){
-				assertTrue(true, expectedMessage2 + " is present");
-			}
-			if (actualOutput.contains(expectedMessage3)) {
-				assertTrue(true, expectedMessage3 + " is present");
-			} 
-			if (actualOutput.contains(expectedMessage4)) {
-				assertTrue(true, expectedMessage4 + " is present"); 
+			for ( String str: errorMsgs) 
+			{  
+				if (actualOutput.contains(str)) {
+					assertTrue(true, str + " is present"); 
+				}  
 			}
 		}
 		else {
-			if (!actualOutput.contains(expectedMessage)) {
-				assertTrue(true, expectedMessage + " is present");
-			} 
-			if (!actualOutput.contains(expectedMessage2)){
-				assertTrue(true, expectedMessage2 + " is present");
-			}
-			if (!actualOutput.contains(expectedMessage3)) {
-				assertTrue(true, expectedMessage3 + " is present");
-			} 
-			if (!actualOutput.contains(expectedMessage4)) {
-				assertTrue(true, expectedMessage4 + " is present"); 
+			for ( String str: errorMsgs) 
+			{  
+				if (!actualOutput.contains(str)) {
+					assertTrue(true, str + " is not present"); 
+				} 
 			}
 		}
+
 	}
 	@BeforeTest
 	public void setUp(){

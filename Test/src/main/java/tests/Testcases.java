@@ -22,14 +22,15 @@ public class Testcases extends base {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		//Checking the error messages
 		String verifyMsg = contactpage.checkErrorMessages();
-		super.validateString(verifyMsg,getXMLData("pageerror"),getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror"),true);
+		String[] errorMsgs=new String[] {getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror")};
+		super.validateString(verifyMsg,errorMsgs,true);
 		//Filling Mandatory fields
 		contactpage.dataForename(getXMLData("forename"));
 		contactpage.dataEmailField(getXMLData("email"));
 		contactpage.dataMessageField(getXMLData("message"));	
 		//Check if error messages are removed
 		verifyMsg = contactpage.checkErrorMessages();
-		super.validateString(verifyMsg,getXMLData("pageerror"),getXMLData("forenameerror"), getXMLData("emailerror"),getXMLData("messageerror"),false);
+		super.validateString(verifyMsg,errorMsgs,false);
 		homepage.clickShop();
 		homepage.clickHome();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));	
