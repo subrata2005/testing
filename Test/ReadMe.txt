@@ -23,8 +23,6 @@ Test case 2:
 3.	Click submit button
 4.	Validate successful submission message
 
-Note: Run this test 5 times to ensure 100% pass rate
-
 
 Test case 3:
 
